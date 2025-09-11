@@ -10,4 +10,19 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    
+}
+html, body {
+  height: 100%;   /* make page full height */
+  margin: 0;
+}
+
+#root {
+  display: flex;          /* make flex container */
+  flex-direction: column; /* stack items vertically */
+  min-height: 100vh;      /* vh = viewport height (100% of screen) */
+}
+
+.main-content {
+  flex: 1;   /* this grows and pushes footer down */
 }

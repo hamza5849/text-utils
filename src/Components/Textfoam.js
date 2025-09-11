@@ -100,9 +100,14 @@ const handleExtraSpaces = () => {
     <div className='container my-2 text-center mb-3' style={{ color: props.mode === 'dark' ? 'white' : '#043743' }}>
 
                 <h1>your text summery </h1>
-       <p>{text.trim().split(/\s+/).filter((word) => word.length !== 0).length} words, {text.length} characters</p>
+       <p>
+          {text.trim().split(/\s+/).filter((word) => word.length > 0).length} words,{" "}
+          {text.replace(/\s/g, "").length} characters
+      </p>
 
-          <p>{0.008*text.split(" ").length} minutes read </p>
+          <p>
+            {0.008 * text.trim().split(/\s+/).filter((word) => word.length > 0).length} minutes read
+          </p>
      
 
 
