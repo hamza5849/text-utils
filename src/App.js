@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import About from "./Components/About";
 import Navbar from "./Components/Navbar";
 import Textfoam from "./Components/Textfoam";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; // 👈 changed here
 import Alert from "./Components/Alert";
 import Footer from "./Components/Footer";
 
@@ -29,11 +29,9 @@ function App() {
   const toggleMode = () => {
     if (Mode === "dark") {
       setMode("light");
-      // body background will be updated by useEffect
       showAlert("Light mode has been enabled", "success");
     } else {
       setMode("dark");
-      // body background will be updated by useEffect
       showAlert("Dark mode has been enabled", "success");
     }
   };
@@ -51,7 +49,7 @@ function App() {
             element={
               <Textfoam
                 showAlert={showAlert}
-                heading="TRY TEXTUTILS- Your Text Assistant  "
+                heading="TRY TEXTUTILS- Your Text Assistant"
                 mode={Mode}
               />
             }
