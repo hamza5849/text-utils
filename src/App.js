@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import About from "./Components/About";
 import Navbar from "./Components/Navbar";
 import Textfoam from "./Components/Textfoam";
-import { HashRouter as Router, Routes, Route } from "react-router-dom"; // 👈 changed here
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+
 import Alert from "./Components/Alert";
 import Footer from "./Components/Footer";
 
@@ -43,18 +44,32 @@ function App() {
 
       <div className="container my-3">
         <Routes>
+          {/* Home Route */}
           <Route
-            exact
             path="/"
             element={
               <Textfoam
                 showAlert={showAlert}
-                heading="TRY TEXTUTILS- Your Text Assistant"
+                heading="TRY TEXTUTILS - Your Text Assistant"
                 mode={Mode}
               />
             }
           />
-          <Route exact path="/about" element={<About mode={Mode} />} />
+
+          {/* About Page */}
+          <Route path="/about" element={<About mode={Mode} />} />
+
+          {/* Fallback route: anything unknown goes to Home */}
+          <Route
+            path="*"
+            element={
+              <Textfoam
+                showAlert={showAlert}
+                heading="TRY TEXTUTILS - Your Text Assistant"
+                mode={Mode}
+              />
+            }
+          />
         </Routes>
       </div>
       <Footer />
